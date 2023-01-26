@@ -1,7 +1,16 @@
 <h1>Home#index</h1>
 
-
-<%= form_for @link, remote: true do |form| %>
+<%= form_with model: Link.new do |form| %>
     <%= form.text_field :origial_url %>
-    <%= form.submit%>
+    <%= form.submit "submit" %>
+<% end %>
+
+<% if @link %>
+    Hey! You just created a short URL.
+    <br>
+    origial_url: <%= @link.origial_url %> 
+    <br>
+    lookup_code: <%= @link.lookup_code %>
+    <br>
+    short_url: <%= @link.short_url %>
 <% end %>
