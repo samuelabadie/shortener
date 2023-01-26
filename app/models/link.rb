@@ -1,12 +1,11 @@
 class Link < ApplicationRecord
 
-  HOST = 'localhost:3000'
   validates_presence_of :lookup_code, :original_url
   validates_uniqueness_of :lookup_code
   validate :original_url_format
 
   def short_url
-    "http://#{HOST}/#{lookup_code}"
+    "http://#{ENV.fetch('HOST')}/#{lookup_code}"
   end
   
   private
