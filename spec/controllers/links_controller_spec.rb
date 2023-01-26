@@ -8,9 +8,9 @@ RSpec.describe LinksController, type: :conntroller do
         
         url = 'https://lesite/blog/articles/brancher-un-aspirateur'
         
-        post :create, params: {link: {origial_url: url}}
+        post :create, params: {link: {original_url: url}}
         link = assigns(:link)
-        expect(link.origial_url).to eq(url)
+        expect(link.original_url).to eq(url)
         expect(link.valid?).to be(true)
         expect(link.lookup_code.length).to eq(7)
         expect(link.persisted?).to be(true)

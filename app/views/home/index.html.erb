@@ -1,14 +1,14 @@
 <h1>Home#index</h1>
 
 <%= form_with model: Link.new do |form| %>
-    <%= form.text_field :origial_url %>
+    <%= form.text_field :original_url %>
     <%= form.submit "submit" %>
 <% end %>
 
 <% if @link %>
     Hey! You just created a short URL.
     <br>
-    origial_url: <%= @link.origial_url %> 
+    original_url: <%= @link.original_url %> 
     <br>
     lookup_code: <%= @link.lookup_code %>
     <br>
