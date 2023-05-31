@@ -1,3 +1,8 @@
-<header class="w-full h-16 bg-red-200 flex justify-center items-center">
-    <span>NavBar</span>
+<header class="relative fixed w-full h-16 bg-black flex justify-center items-center">
+    <div class="w-full flex justify-between items-center px-10">
+        <%= inline_svg_tag "logo.svg", class: "w-8", alt: "icône de flèche en direction du bas" %>
+        <%= inline_svg_tag "letter_logo.svg", class: "h-8", alt: "icône de flèche en direction du bas" %>
+        <%= link_to "Github", "https://github.com/samuelabadie/shortener", class: "font-kurale hover:text-brand transition-all duration-200" %>
+    </div>
+    <span class="absolute bottom-0 w-full h-[2px] bg-white"></span>
 </header>

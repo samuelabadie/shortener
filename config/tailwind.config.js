@@ -8,7 +8,17 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
+    fontFamily: {
+      sans: ['Lato', 'sans-serif'],
+      kurale: ['Kurale', 'serif'],
+    },
     extend: {
+      colors: {
+        'brand': '#7CFF14',
+        'black': '#303030',
+        'white': '#F6F6F6',
+        'dark-black':'#212121',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },

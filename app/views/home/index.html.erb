@@ -1,23 +1,36 @@
-<div class="flex-col justify-center w-1/2 mx-auto">
-
-    <h1>URL Shortener</h1>
-
-    <div>
-        <span>Retrez un url</span>
-        <%= form_with model: Link.new do |form| %>
-            <%= form.text_field :original_url %>
-            <%= form.submit "submit", class: "bg-red-200 p-3 pointer" %>
-        <% end %>
+<section class="flex justify-center">
+    <div class="relative w-1/2 mt-[10%]">
+        <div class="w-8/12 mx-auto">
+            <h1 class="text-6xl mb-8 font-bold">Paste your URL to be shortened</h1>
+            <p class="w-10/12 font-kurale z-10">Azy is a simple and free tool to shorten URLs and generate short linksURL shortener allows to create a shortened link making it easy to share.</p>
+        </div>
+        <div class="absolute bottom-0 z-0 right-10">
+            <%= inline_svg_tag "home_blobs.svg", class: "w-full h-full", alt: "illustration d'un homme avec un ordinateur" %>
+        </div>
     </div>
 
-    <div>
-        <% if @link %>
-            Hey! You just created a short URL.
-            <br>
-            original_url: <%= @link.original_url %> 
-            <br>
-            short_url: <%= @link.short_url %>
-        <% end %>
-    </div>
+    <div class="w-1/2 flex justify-center mt-[10%]">
 
-</div>
+        <div class="w-10/12 my-auto flex flex-col gap-y-10 p-10 border-2 border-brand rounded-xl">
+            <div class="w-10/12 mx-auto">
+                <div class="flex flex-col gap-y-6 justify-center">
+                    <span class="mx-auto text-3xl font-kurale underline underline-offset-4">Paste your url here</span>
+                    <%= inline_svg_tag "arrow.svg", class: "w-10 h-8 fill-current text-white animate-bounce mx-auto", alt: "icône de flèche en direction du bas" %>
+                    <%= form_with model: Link.new do |form| %>
+                        <%= form.text_field :original_url, class: "transition-all duration-400 w-full focus:border-brand border-2 bg-black rounded-md text-whites mr-2" %>
+                        <%= form.submit "create short url", class: "font-kurale w-full mt-4 bg-brand px-4 py-2 pointer text-black rounded-full mx-auto transition-all hover:bg-brand/80 active:scale-90 duration-200" %>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="w-full text-center">
+                <% if @link %>
+                <div data-controller="clipboard" class="font-kurale">
+                    shortened URL : <input class="hidden" data-clipboard-target="source" type="text" value="<%= @link.short_url %>" readonly ></input> <span class="z-10 relative smt-2 ml-2 bg-dark-black px-5 py-4 rounded-full inline-block"><%= @link.short_url %> <button data-action="click->clipboard#copy"><%= inline_svg_tag "copy_icon.svg", class: "text-white hover:text-color-brand transition-all duration-300 inline-block ml-4", alt: "icône de l'action copier" %></button><div data-clipboard-target="copied" class="z-0 h-full flex justify-center items-center absolute right-5 transform translate-x-[150%] top-0 opacity-0">copied !</div></span>
+                </div> 
+                <% end %>
+            </div>
+        </div>
+
+    </div>
+</section>

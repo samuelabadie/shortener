@@ -1,4 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
+def svg(name)
+  file_path = "#{Rails.root}/app/assets/images/#{name}.svg"
+  return File.read(file_path).html_safe if File.exists?(file_path)
+  '(not found)'
+end
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
