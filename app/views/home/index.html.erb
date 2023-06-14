@@ -1,20 +1,20 @@
-<section class="flex justify-center">
-    <div class="relative w-1/2 mt-[10%]">
+<section class="flex lg:flex-row flex-col items-center justify-center">
+    <div class="relative w-full lg:w-1/2 mt-[10%] text-center">
         <div class="w-8/12 mx-auto">
-            <h1 class="text-6xl mb-8 font-bold">Paste your URL to be shortened</h1>
-            <p class="w-10/12 font-kurale z-10">Azy is a simple and free tool to shorten URLs and generate short linksURL shortener allows to create a shortened link making it easy to share.</p>
+            <h1 class="lg:text-6xl mb-8 font-bold lg:text-left text-4xl">Paste your URL to be shortened</h1>
+            <p class="w-full lg:w-10/12 font-kurale z-10 lg:text-left">Azy is a simple and free tool to shorten URLs and generate short linksURL shortener allows to create a shortened link making it easy to share.</p>
         </div>
         <div class="absolute bottom-0 z-0 right-10">
             <%= inline_svg_tag "home_blobs.svg", class: "w-full h-full", alt: "illustration d'un homme avec un ordinateur" %>
         </div>
     </div>
 
-    <div class="w-1/2 flex justify-center mt-[10%]">
+    <div class="w-full lg:w-1/2 flex justify-center mt-[10%] mb-10 lg:mb-0">
 
-        <div class="w-10/12 my-auto flex flex-col gap-y-10 p-10 border-2 border-brand rounded-xl">
+        <div class="w-10/12 my-auto flex flex-col  gap-y-10 lg:p-10 p-4 border-2 border-brand rounded-xl">
             <div class="w-10/12 mx-auto">
                 <div class="flex flex-col gap-y-6 justify-center">
-                    <span class="mx-auto text-3xl font-kurale underline underline-offset-4">Paste your url here</span>
+                    <span class="mx-auto text-3xl font-kurale underline underline-offset-4 text-center">Paste your url here</span>
                     <%= inline_svg_tag "arrow.svg", class: "w-10 h-8 fill-current text-white animate-bounce mx-auto", alt: "icône de flèche en direction du bas" %>
                     <%= form_with model: Link.new do |form| %>
                         <%= form.text_field :original_url, class: "transition-all duration-400 w-full focus:border-brand border-2 bg-black rounded-md text-whites mr-2" %>
